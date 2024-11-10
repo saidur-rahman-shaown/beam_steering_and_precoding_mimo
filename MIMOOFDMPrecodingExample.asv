@@ -1,5 +1,5 @@
 
-
+clearvars;
 close all;
 clc;
 s = rng(61);        % Set RNG state for repeatability
@@ -20,8 +20,8 @@ prm.numDataSymbols = 10;     % Number of OFDM data symbols
 prm.fc = 4e9;                   % 4 GHz system
 prm.chanSRate = 100e6;          % Channel sampling rate, 100 Msps
 prm.NFig = 5;                   % Noise figure, dB
-prm.enSteering = false;          % Enable/disable steering
-prm.mobileAngle = [-90; 0];
+prm.enSteering = true;          % Enable/disable steering
+prm.mobileAngle = [33; 0];
 
 % Parameters to define the OFDM modulation employed for the system are
 % specified below.
@@ -67,8 +67,7 @@ plot(prm.rays{1});
 %%
 
 prm.avgPathGains  = -[prm.rays{1}.PathLoss];                                    % Average path gains of each ray
-% prm.spLoss = -mean(prm.avgPathGains);
-prm.spLoss = -prm.avgPathGains(1);
+prm.spLoss = -mean(prm.avgPathGains);
 prm.pathAoDs = [prm.rays{1}.AngleOfDeparture];                                  % AoD of each ray
 prm.pathAoAs = [prm.rays{1}.AngleOfArrival];                                    % AoA of each ray
 prm.isLOS = any([prm.rays{1}.LineOfSight]);  
@@ -153,8 +152,8 @@ encoder = comm.ConvolutionalEncoder( ...
     'TerminationMethod','Terminated');
 
 % Generate mapped symbols from bits
-txBits = randi([0, 1],prm.numFrmBits,1);
-% txBits = ones(prm.numFrmBits,1);
+% txBits = randi([0, 1],prm.numFrmBits,1);
+txBits = ones(prm.numFrmBits,1);
 encodedBits = encoder(txBits);
 
 % Bits to QAM symbol mapping
@@ -234,10 +233,10 @@ end
 SteerVecTx = phased.SteeringVector('SensorArray',prm.txarray, ...
     'PropagationSpeed',prm.cLight);
 
-txSteerAngles = prm.txArrayOrientation-prm.pathAoDs;
+txSteerAng = [0;0]; % prm.pathAoDs(:, 1);
 
 % Generate weights for steered direction
-wT = SteerVecTx(prm.fc,txSteerAngles(:,1));
+wT = SteerVecTx(prm.fc,txSteerAng);
 
 % Radiate along the steered direction, without signal combining
 radiatorTx = phased.Radiator('Sensor',prm.txarray, ...
@@ -284,6 +283,19 @@ end
 
 %% Signal Propagation 
 %
+% The example offers three options for spatial MIMO channels and a
+% simpler static-flat MIMO channel for evaluation purposes.
+
+% The two scattering based channels use a single-bounce path through each
+% scatterer where the number of scatterers is user-specified. For this
+% example, the number of scatterers is set to 100. The 'Scattering' option
+% models the scatterers placed randomly within a circle in between the
+% transmitter and receiver, while the 'ScatteringFcn' models their
+% placement completely randomly.
+%
+% The models allow path loss modeling and both line-of-sight (LOS) and
+% non-LOS propagation conditions. The example assumes non-LOS propagation
+% and isotropic antenna element patterns with linear geometry.
 
 % Apply a spatially defined channel to the steered signal
 [rxSig,chanDelay] = applyChannel(txSteerSig,prm,channel,preambleSig);
@@ -317,8 +329,8 @@ SteerVecRx = phased.SteeringVector('SensorArray',prm.rxarray, ...
 
 % Generate weights for steered direction towards mobile
 % rxSteerAng = prm.pathAoAs(:, 1);
-rxSteerAngles = prm.rxArrayOrientation-prm.pathAoAs;
-wR = SteerVecRx(prm.fc,rxSteerAngles(:, 1));
+rxSteerAng = [0 ; 0];
+wR = SteerVecRx(prm.fc,rxSteerAng);
 
 % Steer along the mobile receive direction
 if prm.enSteering

@@ -17,7 +17,7 @@ if nargin>1
 end
 
 P = helperGetP(numSTS);
-Nltf = numSTS; % number of preamble symbols
+Nltf = numSTS; % number of preamble (long training fields) symbols 
 
 % Frequency subcarrier tones
 ltfLeft = [1; 1;-1;-1; 1; 1;-1; 1; -1; 1; 1; 1; ...
@@ -59,7 +59,8 @@ for i = 1:Nltf
         end
     end
 
-    % OFDM modulation
+    % OFDM modulation  ltfTx size = Nsc X Nsym X Nt and output Y =
+    % osf*Nsym*total*Nt
     tmp = ofdmmod(reshape(ltfTx, [prm.FFTLength,1,numSTS]), ...
         prm.FFTLength, prm.CyclicPrefixLength);
     y((i-1)*symLen+(1:symLen),:) = tmp*normFac;

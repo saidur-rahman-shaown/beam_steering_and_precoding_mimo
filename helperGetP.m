@@ -61,7 +61,7 @@ end
 
 % For internal use only: 
 %    Uncomment following code to cross-check mapping to be orthogonal
-%
+
 % cross = zeros(numTx,numTx);
 % for i = 1:numTx
 %     for j = 1:numTx
