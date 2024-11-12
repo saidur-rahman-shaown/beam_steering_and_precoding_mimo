@@ -1,13 +1,39 @@
 
 # Precoding and Beam Steering in a MIMO-OFDM System Using Ray Tracing in Sub-6GHz
 
-This project explores beam steering techniques in a MIMO-OFDM system within the sub-6GHz frequency band using ray tracing simulations. The setup features a transmitter placed Electrical and Computer Engineering building and a receiver located several meters away. The simulation focuses on evaluating bit error rates (BER) and optimizing beam alignment for effective communication. For 
+This project explores beam steering techniques in a MIMO-OFDM system within the sub-6GHz frequency band using ray tracing simulations. The setup features a transmitter placed Electrical and Computer Engineering building and a receiver located several meters away. The simulation focuses on evaluating bit error rates (BER) and optimizing beam alignment for effective communication. 
 
 ## Features
 - **MIMO-OFDM Precoding**: Models bit error rates for a multiple-input multiple-output orthogonal frequency division multiplexing system in the sub-6GHz spectrum employing channel sounding and precoding.
 - **Ray Tracing Integration**: Implements ray tracing techniques to achieve precise beam steering and enhance signal alignment.
 - **Realistic Setup**: Simulates practical deployment scenarios for wireless communication.
 - **Customizable Parameters**: Easily adapt system configurations for different environments and use cases.
+
+## Final Results
+Site looks like this, 
+<p align="center">
+    <img src="./results/site_final.png" alt="Final site looks">
+    <br>Beam steered site
+</p>
+
+<p align="center">
+    <img src="./results/tx_site_beam_pattern.png" alt="Transmitter beam">
+    <br>Transmitter Beam
+</p>
+
+<p align="center">
+    <img src="./results/rx_site_beam_pattern.png" alt="Receiver beam">
+    <br>Receiver Beam Alignment
+</p>
+<p align="center">
+    <img src="./results/received_constillation_diagram.png" alt="Received Constellation Diagram">
+    <br>Received Constellation Diagram
+</p>
+
+And the simulation result is, 
+```BER = 0.01464; No. of Bits = 74874; No. of errors = 1096```
+
+
 
 ## Prerequisites
 - MATLAB (R2020a or later is recommended)
@@ -113,8 +139,10 @@ For this purpose `array_setup.m` function is used which sets up transmitter (Tx)
   - Rx Position: `[23.725462, 90.387456, 15]` (latitude, longitude, height).
   - Rx Array Orientation: `[90, 0]` (azimuth and elevation in degrees).
 
-  **Site after placing transmitter and reciever**
-  ![transmitter reciever site](./results/tx_rx_site.png)
+ <p align="center">
+    <img src="./results/tx_rx_site.png" alt="Transmitter receiver site">
+    <br>Site after placing transmitter and receiver
+</p>
 
 - **Antenna Setup**:
   - Configures Tx and Rx arrays using `phased.URA` or `phased.ULA` with specified element spacing and properties.
@@ -123,7 +151,11 @@ For this purpose `array_setup.m` function is used which sets up transmitter (Tx)
 - Utilizes the **ray tracing propagation model** with a specified number of reflections (`prm.reflectionsOrder`).
 - Configures Tx and Rx sites using `txsite` and `rxsite` functions.
 - Performs ray tracing.
-![rays in site](./results/tx_rx_rays.png)
+<p align="center">
+    <img src="./results/tx_rx_rays.png" alt="Rays from transmitter to receiver">
+    <br>Rays from transmitter to receiver
+</p>
+
 
 
 ### Channel Sounding
@@ -183,10 +215,25 @@ This section describes the amplification, steering, and visualization of the tra
 
 4. **Visualization**:  
    - Displays the array geometry and visualizes the transmit array's response, azimuth, and elevation patterns, demonstrating the beamforming effect.
-   ![transmit array](./results/tx_array_geometry.png)
-   ![3D directivity pattern](./results/tx_3d_directivity_pattern.png)
-   ![Azimuth Cut](./results/tx_array_azimuth_pattern.png)
-   ![Elevation Cut](./results/tx_array_elevation_pattern.png)
+<p align="center">
+    <img src="./results/tx_array_geometry.png" alt="Transmitter Array">
+    <br>Transmitter Array
+</p>
+
+<p align="center">
+    <img src="./results/tx_3d_directivity_pattern.png" alt="3D Directivity Pattern">
+    <br>3D Directivity Pattern
+</p>
+
+<p align="center">
+    <img src="./results/tx_array_azimuth_pattern.png" alt="Azimuth Cut">
+    <br>Azimuth Cut
+</p>
+
+<p align="center">
+    <img src="./results/tx_array_elevation_pattern.png" alt="Elevation Cut">
+    <br>Elevation Cut
+</p>
 
 
 
@@ -212,10 +259,21 @@ This process involves amplifying the received signal, applying steering weights,
    - Displays the geometry of the receive array.
    - Plots the response pattern, azimuth pattern, and, if applicable, elevation pattern to showcase the beamforming performance.
 
-   Receive array geomtry
-   ![Recieve array geometry](./results/rx_array_geometry.png)
-   ![3D direcitiviy pattern](./results/rx_beam_pattern.png)
-   ![Azimuth cut of rx beam](./results/rx_array_azimuth_pattern.png)
+ <p align="center">
+    <img src="./results/rx_array_geometry.png" alt="Receive Array Geometry">
+    <br>Receive Array Geometry
+</p>
+
+<p align="center">
+    <img src="./results/rx_beam_pattern.png" alt="3D Directivity Pattern">
+    <br>3D Directivity Pattern
+</p>
+
+<p align="center">
+    <img src="./results/rx_array_azimuth_pattern.png" alt="Azimuth Cut of RX Beam">
+    <br>Azimuth Cut of RX Beam
+</p>
+
 
 This procedure enhances reception by focusing the array's sensitivity in the desired direction.
 ### Signal Recovery
@@ -245,8 +303,7 @@ This process involves converting the received signal back into data bits by perf
    - Uses a Viterbi decoder (`comm.ViterbiDecoder`) to perform convolutional decoding on the LLR values.
    - Outputs the received decoded bits.
 
-Received constellation diagram is, 
-![Recieved Constellation diagam](./results/received_constillation_diagram.png)
+
 
 
 ## Future Work
