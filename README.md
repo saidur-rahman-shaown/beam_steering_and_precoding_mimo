@@ -325,3 +325,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 For any queries or feedback, please contact:
 - **Author**: Md. Saidur Rahman
 - **Email**: saidur.eee.buet@gmail.com
+## Acknowledgments
+
+Code used in this implementation was adapted from MATLAB resources.  
+Special thanks to MathWorks for their excellent documentation and support.
