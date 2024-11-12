@@ -18,12 +18,12 @@ Site looks like this,
 
 <p align="center">
     <img src="./results/tx_site_beam_pattern.png" alt="Transmitter beam">
-    <br>Transmitter Beam
+    <br>Transmitted Beam Alignmen
 </p>
 
 <p align="center">
     <img src="./results/rx_site_beam_pattern.png" alt="Receiver beam">
-    <br>Receiver Beam Alignment
+    <br>Received Beam Alignment
 </p>
 <p align="center">
     <img src="./results/received_constillation_diagram.png" alt="Received Constellation Diagram">
@@ -31,7 +31,7 @@ Site looks like this,
 </p>
 
 And the simulation result is, 
-```BER = 0.01464; No. of Bits = 74874; No. of errors = 1096```
+```BER = 0.01464; No. of Bits Sent = 74874; No. of errors = 1096```
 
 
 
