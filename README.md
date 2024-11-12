@@ -13,12 +13,12 @@ This project explores beam steering techniques in a MIMO-OFDM system within the 
 Site looks like this, 
 <p align="center">
     <img src="./results/site_final.png" alt="Final site looks">
-    <br>Beam steered site
+    <br>Beam Steered Site
 </p>
 
 <p align="center">
     <img src="./results/tx_site_beam_pattern.png" alt="Transmitter beam">
-    <br>Transmitted Beam Alignmen
+    <br>Transmitted Beam Alignment
 </p>
 
 <p align="center">
