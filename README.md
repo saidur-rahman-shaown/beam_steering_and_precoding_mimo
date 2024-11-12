@@ -11,24 +11,29 @@ This project explores beam steering techniques in a MIMO-OFDM system within the 
 
 ## Final Results
 Site looks like this, 
-<p align="center">
-    <img src="./results/site_final.png" alt="Final site looks">
-    <br>Beam Steered Site
-</p>
+<table>
+  <tr>
+    <td align="center">
+      <img src="./results/site_final.png" alt="Final site looks" width="100%">
+      <br>Beam Steered Site
+    </td>
+    <td align="center">
+      <img src="./results/tx_site_beam_pattern.png" alt="Transmitter beam" width="100%">
+      <br>Transmitted Beam Alignment
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./results/rx_site_beam_pattern.png" alt="Receiver beam" width="100%">
+      <br>Received Beam Alignment
+    </td>
+    <td align="center">
+      <img src="./results/received_constillation_diagram.png" alt="Received Constellation Diagram" width="100%">
+      <br>Received Constellation Diagram
+    </td>
+  </tr>
+</table>
 
-<p align="center">
-    <img src="./results/tx_site_beam_pattern.png" alt="Transmitter beam">
-    <br>Transmitted Beam Alignment
-</p>
-
-<p align="center">
-    <img src="./results/rx_site_beam_pattern.png" alt="Receiver beam">
-    <br>Received Beam Alignment
-</p>
-<p align="center">
-    <img src="./results/received_constillation_diagram.png" alt="Received Constellation Diagram">
-    <br>Received Constellation Diagram
-</p>
 
 And the simulation result is, 
 ```BER = 0.01464; No. of Bits Sent = 74874; No. of errors = 1096```
@@ -215,25 +220,29 @@ This section describes the amplification, steering, and visualization of the tra
 
 4. **Visualization**:  
    - Displays the array geometry and visualizes the transmit array's response, azimuth, and elevation patterns, demonstrating the beamforming effect.
-<p align="center">
-    <img src="./results/tx_array_geometry.png" alt="Transmitter Array">
-    <br>Transmitter Array
-</p>
+<table>
+  <tr>
+    <td align="center">
+      <img src="./results/tx_array_geometry.png" alt="Transmitter Array" width="100%">
+      <br>Transmitter Array
+    </td>
+    <td align="center">
+      <img src="./results/tx_3d_directivity_pattern.png" alt="3D Directivity Pattern" width="100%">
+      <br>3D Directivity Pattern
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./results/tx_array_azimuth_pattern.png" alt="Azimuth Cut" width="100%">
+      <br>Azimuth Cut
+    </td>
+    <td align="center">
+      <img src="./results/tx_array_elevation_pattern.png" alt="Elevation Cut" width="100%">
+      <br>Elevation Cut
+    </td>
+  </tr>
+</table>
 
-<p align="center">
-    <img src="./results/tx_3d_directivity_pattern.png" alt="3D Directivity Pattern">
-    <br>3D Directivity Pattern
-</p>
-
-<p align="center">
-    <img src="./results/tx_array_azimuth_pattern.png" alt="Azimuth Cut">
-    <br>Azimuth Cut
-</p>
-
-<p align="center">
-    <img src="./results/tx_array_elevation_pattern.png" alt="Elevation Cut">
-    <br>Elevation Cut
-</p>
 
 
 
@@ -259,20 +268,22 @@ This process involves amplifying the received signal, applying steering weights,
    - Displays the geometry of the receive array.
    - Plots the response pattern, azimuth pattern, and, if applicable, elevation pattern to showcase the beamforming performance.
 
- <p align="center">
-    <img src="./results/rx_array_geometry.png" alt="Receive Array Geometry">
-    <br>Receive Array Geometry
-</p>
-
-<p align="center">
-    <img src="./results/rx_beam_pattern.png" alt="3D Directivity Pattern">
-    <br>3D Directivity Pattern
-</p>
-
-<p align="center">
-    <img src="./results/rx_array_azimuth_pattern.png" alt="Azimuth Cut of RX Beam">
-    <br>Azimuth Cut of RX Beam
-</p>
+<table>
+  <tr>
+    <td align="center">
+      <img src="./results/rx_array_geometry.png" alt="Receive Array Geometry" width="100%">
+      <br>Receive Array Geometry
+    </td>
+    <td align="center">
+      <img src="./results/rx_beam_pattern.png" alt="3D Directivity Pattern" width="100%">
+      <br>3D Directivity Pattern
+    </td>
+    <td align="center">
+      <img src="./results/rx_array_azimuth_pattern.png" alt="Azimuth Cut of RX Beam" width="100%">
+      <br>Azimuth Cut of RX Beam
+    </td>
+  </tr>
+</table>
 
 
 This procedure enhances reception by focusing the array's sensitivity in the desired direction.
