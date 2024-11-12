@@ -122,10 +122,19 @@ hD = helperMIMOChannelEstimate(rxOFDM(:,1:numSTS,:),prm);
 % Calculate the feedback weights
 v = diagbfweights(hD);
 
+%% 
+% For conciseness in presentation, front-end synchronization including
+% carrier and timing recovery are assumed. The weights computed using
+% |diagbfweights| are hence fed back to the transmitter, for subsequent
+% application for the actual data transmission.
 
 %% Data Transmission 
 %
-
+% Next, we configure the system's data transmitter. This processing
+% includes channel coding, bit mapping to complex symbols, splitting of the
+% individual data stream to multiple transmit streams, precoding of the
+% transmit streams, OFDM modulation with pilot mapping and replication for
+% the transmit antennas employed.
 
 % Convolutional encoder
 encoder = comm.ConvolutionalEncoder( ...
@@ -182,7 +191,6 @@ for i = 1:numSTS
         repmat(txSigSTS(:,i),1,prm.expFactorTx);
 end
 
-%%
 
 
 %% Transmit Beam Steering 
@@ -252,7 +260,11 @@ end
 % of data symbols parameter, |prm.numDataSymbols|.
 
 %% Receive Beam Steering
-
+%
+% The receiver steers the incident signals to align with the transmit end
+% steering, per receive element. Thermal noise and receiver gain are
+% applied. Uniform linear or rectangular arrays with isotropic responses
+% are modeled to match the channel and transmitter arrays.
 
 rxPreAmp = phased.ReceiverPreamp( ...
     'Gain',gainFactor*prm.spLoss, ... % accounts for path loss
