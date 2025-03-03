@@ -1,7 +1,7 @@
 
 # Precoding and Beam Steering in a MIMO-OFDM System Using Ray Tracing in Sub-6GHz
 
-This project explores beam steering techniques in a MIMO-OFDM system within the sub-6GHz frequency band using ray tracing simulations. The setup features a transmitter placed Electrical and Computer Engineering building and a receiver located several meters away. The simulation focuses on evaluating bit error rates (BER) and optimizing beam alignment for effective communication. 
+To explore adaptive, codebook-free beamforming for real-time UE localization and dynamic beam steering in next-generation wireless networks, a strong foundation is essential. This groundwork has been established through precoding and beam steering in a MIMO-OFDM system using ray tracing in the sub-6GHz band, optimizing beam alignment and evaluating BER. The setup features a transmitter placed Electrical and Computer Engineering building, BUET and a receiver located several meters away. The simulation focuses on evaluating bit error rates (BER) and optimizing beam alignment for effective communication. 
 
 ## Features
 - **MIMO-OFDM Precoding**: Models bit error rates for a multiple-input multiple-output orthogonal frequency division multiplexing system in the sub-6GHz spectrum employing channel sounding and precoding.
